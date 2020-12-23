@@ -13,7 +13,7 @@ class Listener
      * @param \XF\App $app
      * @throws \XF\PrintableException
      */
-    public static function appSetup(\XF\App $app)
+    public static function appSetup(\XF\App $app): void
     {
         $developmentMode = \XF::$debugMode && \XF::$developmentMode;
         $options = \XF::options();
