@@ -1,5 +1,8 @@
 # XenForo2-OptionsByUrl
 
-Allows overrideing XF options via URL.
+Allows overriding XF options via URL. Prefixing `xf.options.` to the option name;
 
-Only runs when development mode is enabled, throws an error otherwise.
+ie;
+`http://example.org/?xf.options.boardActive=0`
+
+Only runs when development mode is enabled, logs an error otherwise.

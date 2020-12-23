@@ -1,0 +1,9 @@
+{
+    "event_id": "app_setup",
+    "execute_order": 0,
+    "callback_class": "\\SV\\OptionsByUrl\\Listener",
+    "callback_method": "appSetup",
+    "active": true,
+    "hint": "",
+    "description": "Allows setting XF options via URL"
+}
