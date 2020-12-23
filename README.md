@@ -21,6 +21,6 @@ A site with this add-on installed should not be internet accessible as this allo
 # Installing
 
 ```
-git clone https://github.com/Xon/OptionsByUrl.git src/addons/SV/OptionsByUrl
+git clone https://github.com/Xon/XenForo2-OptionsByUrl.git src/addons/SV/OptionsByUrl
 php cmd.php xf-addon:install SV/OptionsByUrl
 ```
