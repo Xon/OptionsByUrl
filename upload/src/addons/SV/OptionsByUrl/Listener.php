@@ -11,6 +11,7 @@ class Listener
 {
     /**
      * @param \XF\App $app
+     * @throws \XF\PrintableException
      */
     public static function appSetup(\XF\App $app)
     {
@@ -73,7 +74,11 @@ class Listener
                     }
                     $option->option_value = $value;
                     $option->setReadOnly(true);
-                    if (!$option->hasErrors() && $option->hasChanges())
+                    if ($option->hasErrors())
+                    {
+                        throw new \XF\PrintableException($option->getErrors());
+                    }
+                    if ($option->hasChanges())
                     {
                         $options->offsetSet($optionKey, $option->option_value);
                     }
