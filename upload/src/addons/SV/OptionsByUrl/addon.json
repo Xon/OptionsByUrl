@@ -1,0 +1,17 @@
+{
+    "legacy_addon_id": "",
+    "title": "Options by URL",
+    "description": "Manipulate XF options via URL manipulation",
+    "version_id": 2010002,
+    "version_string": "2.1.0",
+    "dev" : "Xon",
+    "dev_url": "https://atelieraphelion.com/",
+    "faq_url": "",
+    "support_url": "",
+    "extra_urls": [],
+    "require" : {
+        "XF": [2010070, "XenForo 2.1.0+"],
+        "php": ["7.0.0", "PHP 7.0.0+"]
+    },
+    "icon": "fa-bug"
+}
