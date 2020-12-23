@@ -5,4 +5,8 @@ Allows overriding XF options via URL. Prefixing `xf.options.` to the option name
 ie;
 `http://example.org/?xf.options.boardActive=0`
 
+Array values should be encoded as json;
+ie;
+`http://example.org/?xf.options.tosUrl={"type":"default"}`
+
 Only runs when development mode is enabled, logs an error otherwise.

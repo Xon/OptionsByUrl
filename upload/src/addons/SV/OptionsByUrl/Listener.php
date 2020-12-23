@@ -67,6 +67,10 @@ class Listener
                 $value = $request->filter($urlKey, '?str');
                 if ($value !== null)
                 {
+                    if ($option->data_type === 'array')
+                    {
+                        $value = \json_decode($value, true);
+                    }
                     $option->option_value = $value;
                     $option->setReadOnly(true);
                     if (!$option->hasErrors() && $option->hasChanges())
