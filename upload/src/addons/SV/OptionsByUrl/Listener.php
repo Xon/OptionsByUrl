@@ -16,12 +16,11 @@ class Listener
     public static function appSetup(\XF\App $app)
     {
         $developmentMode = \XF::$debugMode && \XF::$developmentMode;
-
         $options = \XF::options();
         $request = $app->request();
-
         $overrides = [];
 
+        // phase 1, collect possible overrides
         foreach ($options as $optionKey => $value)
         {
             $validKey = false;
@@ -49,11 +48,13 @@ class Listener
             }
         }
 
+        // phase 2, validate overrides
         if ($overrides)
         {
             // pre-load options
             $app->find('XF:Option', \array_keys($overrides));
 
+            $changedOptions = [];
             // using the option entity, parse the URL string into valid option data
             foreach ($overrides as $optionKey => $urlKey)
             {
@@ -80,9 +81,15 @@ class Listener
                     }
                     if ($option->hasChanges())
                     {
-                        $options->offsetSet($optionKey, $option->option_value);
+                        $changedOptions[$optionKey] = $option->option_value;
                     }
                 }
+            }
+
+            // phase 3, apply overrides to live configuration
+            foreach($changedOptions as $key => $value)
+            {
+                $options->offsetSet($key, $value);
             }
         }
     }
